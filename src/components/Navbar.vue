@@ -8,7 +8,9 @@
           alt=""
           class="header-body-head-logo"
         />
-        <button class="header-body-head-login" v-if="!isLogin">登入</button>
+        <button class="header-body-head-login" v-if="!isLogin">登入
+          <img src="../assets/footer/footer_bg.jpg" alt="" class="header-body-head-login-bg">
+        </button>
       </div>
     </div>
   </div>
@@ -30,8 +32,10 @@ export default {
   height: 61.5px;
   width: 384px;
   &-bg {
+    position: relative;
     height: 61.5px;
     width: 384px;
+    z-index: -2;
   }
   &-body {
     position: absolute;
@@ -49,17 +53,28 @@ export default {
         margin-left: 1em;
       }
       &-login {
+        position: relative;
         margin-left: 35%;
         font-size: 15px;
         color: white;
-        background-color: blue;
         border: none;
+        outline: none;
+        background-color: transparent;
         width: 70px;
         height: 30px;
-        border-radius: 14px;
+        border-radius: 15px;
         cursor: pointer;
         &:hover {
           font-weight: 700;
+        }
+        &-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          width: 70px;
+          height: 30px;
+          border-radius: 15px;
         }
       }
     }

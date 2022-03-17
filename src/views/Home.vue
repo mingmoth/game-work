@@ -7,6 +7,7 @@
     </div>
     <System />
     <Select />
+    <Games />
     <Footer />
   </div>
 </template>
@@ -17,11 +18,12 @@ import Sidebar from '../components/Sidebar.vue'
 import Carousel from '../components/Carousel.vue'
 import System from '../components/System.vue'
 import Select from '../components/Select.vue'
+import Games from '../components/Games.vue'
 import Footer from '../components/Footer.vue'
 export default {
   name: 'Home',
   components: {
-    Navbar, Sidebar, Carousel, System, Select, Footer,
+    Navbar, Sidebar, Carousel, System, Select, Games, Footer,
   }
 }
 </script>
@@ -31,6 +33,5 @@ export default {
   position: relative;
   height: 713.5px;
   width: 384px;
-  background-color: green;
 }
 </style>
