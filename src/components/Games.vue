@@ -134,7 +134,6 @@ export default {
         align-items: center;
         background: #000;
         opacity: 70%;
-        z-index: 4;
         img {
           position: relative;
           width: 87px;
