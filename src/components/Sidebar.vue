@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="side">
+    <div class="side-user" v-if="isLogin">
+
+    </div>
     <label for="sidebar-toggle" class="toggle">
       <img src="../assets/icon/icon_menu.svg" alt="" class="toggle-icon">
     </label>
@@ -20,11 +23,21 @@
 
 <script>
 export default {
-  name: 'Sidebar'
+  name: 'Sidebar',
+  data() {
+    return {
+      isLogin: true
+    }
+  }
 }
 </script>
 
 <style lang="scss">
+.side {
+  &-user {
+    height: 30px;
+  }
+}
 .toggle {
   position: absolute;
   width: 40px;
@@ -34,17 +47,17 @@ export default {
   top: 14px;
 }
 .sidebar-toggle {
-  visibility: hidden;
+  display: none;
 }
 
 .sidebar {
   width: 220px;
-  height: 604px;
+  height: 652px;
   background-color: black;
   position: absolute;
   top: 61.5px;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   transform: scale(0, 1);
   transform-origin: right;
   transition: transform 0.3s ease-out;

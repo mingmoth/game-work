@@ -10,10 +10,6 @@
         />
         <button class="header-body-head-login" v-if="!isLogin">登入</button>
       </div>
-      <div class="header-body-info" v-if="isLogin">
-        <div class="header-body-info-id"></div>
-        <div class="header-body-info-credit"></div>
-      </div>
     </div>
   </div>
 </template>
@@ -66,11 +62,6 @@ export default {
           font-weight: 700;
         }
       }
-    }
-    &-info {
-      width: 384px;
-      height: 20px;
-      border: 1px solid green;
     }
   }
 }
