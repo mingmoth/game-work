@@ -63,7 +63,7 @@ export default {
     height: 30px;
     padding-left: 1em;
     background: #000;
-    opacity: 50%;
+    opacity: 80%;
     &-info {
       z-index: 2;
       line-height: 30px;
@@ -73,10 +73,10 @@ export default {
   }
   .carousel {
     width: 384px;
-    height: 200px;
+    height: 185px;
     img {
       width: 384px;
-      height: 180px;
+      height: 185px;
       object-fit: cover;
     }
   }

@@ -5,6 +5,8 @@
     <div class="banner">
       <Carousel />
     </div>
+    <System />
+    <Select />
     <Footer />
   </div>
 </template>
@@ -13,11 +15,13 @@
 import Navbar from '../components/Navbar.vue'
 import Sidebar from '../components/Sidebar.vue'
 import Carousel from '../components/Carousel.vue'
+import System from '../components/System.vue'
+import Select from '../components/Select.vue'
 import Footer from '../components/Footer.vue'
 export default {
   name: 'Home',
   components: {
-    Navbar, Sidebar, Carousel, Footer,
+    Navbar, Sidebar, Carousel, System, Select, Footer,
   }
 }
 </script>
