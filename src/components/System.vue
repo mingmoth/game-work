@@ -1,5 +1,5 @@
 <template>
-  <div class="system">
+  <div class="system" @click.stop.prevent="toggleSidebar">
     <img src="../assets/footer/jp_bg.jpg" alt="" class="system-bg">
     <div class="system-body">
       <div class="system-body-item">
@@ -15,8 +15,20 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'System',
+  computed: {
+    ...mapState(['isToggle'])
+  },
+  methods: {
+    toggleSidebar() {
+      if(this.isToggle) {
+        console.log('toggleback')
+        this.$store.commit('toggleSidebar')
+      }
+    },
+  }
 }
 </script>
 

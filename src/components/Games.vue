@@ -1,16 +1,16 @@
 <template>
-  <div class="games">
+  <div class="games" @click.stop.prevent="toggleSidebar">
     <img src="../assets/game/bg_index.jpg" alt="" class="games-bg" />
     <div class="row">
-      <div class="games-container-item">
+      <div class="games-container-item" @click.stop.prevent="enterGame">
         <div class="games-container-item-title">實體機台</div>
         <img src="../assets/game/mechine.png" alt="" />
       </div>
-      <div class="games-container-item">
+      <div class="games-container-item" @click.stop.prevent="enterGame">
         <div class="games-container-item-title">視訊直播</div>
         <img src="../assets/game/live.png" alt="" />
       </div>
-      <div class="games-container-item">
+      <div class="games-container-item" @click.stop.prevent="enterGame">
         <div class="games-container-item-title">電子遊戲</div>
         <img src="../assets/game/electronic.png" alt="" />
       </div>
@@ -28,7 +28,7 @@
           <img src="../assets/game/tag_soon.png" alt="" class="games-container-item-maintain-img">
         </div>
       </div>
-      <div class="games-container-item">
+      <div class="games-container-item" @click.stop.prevent="enterGame">
         <div class="games-container-item-title">樂透彩票</div>
         <img src="../assets/game/lottory.png" alt="" />
       </div>
@@ -58,8 +58,27 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: "Games",
+  computed: {
+    ...mapState(['isLogin', 'isToggle'])
+  },
+  methods: {
+    toggleSidebar() {
+      if(this.isToggle) {
+        console.log('toggleback')
+        this.$store.commit('toggleSidebar')
+      }
+    },
+    enterGame() {
+      if(!this.isLogin) {
+        alert('請先登入')
+      } else {
+        alert('敬請期待')
+      }
+    }
+  }
 };
 </script>
 

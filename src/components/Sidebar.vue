@@ -7,19 +7,22 @@
       <div class="side-user-credit">$ 4,600.00</div>
     </div>
     <label for="sidebar-toggle" class="toggle">
-      <img src="../assets/icon/icon_menu.svg" alt="" class="toggle-icon">
+      <img src="../assets/icon/icon_menu.svg" alt="" class="toggle-icon" @click.stop.prevent="toggleLabel">
     </label>
-    <input type="checkbox" class="sidebar-toggle" id="sidebar-toggle">
+    <input type="checkbox" class="sidebar-toggle" id="sidebar-toggle" v-model="isToggle">
     <div class="sidebar">
-      <div class="sidebar-head">
+      <div class="sidebar-head" v-if="isLogin">
         <div class="sidebar-head-user">TEST0001</div>
         <div class="sidebar-head-credit">$ 4,600.00 (TWD)</div>
       </div>
       <div class="sidebar-item">出納櫃台</div>
-      <div class="sidebar-item">修改密碼</div>
+      <div class="sidebar-item" v-if="isLogin">修改密碼</div>
       <div class="sidebar-item">遊戲介紹</div>
       <div class="sidebar-item">聯絡我們</div>
-      <button class="sidebar-logout">登出
+      <button class="sidebar-logout" v-if="isLogin" @click.stop.prevent="logout">登出
+        <img src="../assets/footer/footer_bg.jpg" alt="" class="sidebar-logout-img">
+      </button>
+      <button class="sidebar-logout" v-else @click.stop.prevent="logout" disabled>未登入
         <img src="../assets/footer/footer_bg.jpg" alt="" class="sidebar-logout-img">
       </button>
     </div>
@@ -27,11 +30,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Sidebar',
-  data() {
-    return {
-      isLogin: false
+  computed: {
+    ...mapState(['isLogin', 'isToggle'])
+  },
+  methods: {
+    logout() {
+      this.$store.commit('logoutUser')
+    },
+    toggleLabel() {
+      this.$store.commit('toggleLabel')
     }
   }
 }

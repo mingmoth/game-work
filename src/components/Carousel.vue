@@ -1,5 +1,5 @@
 <template>
-  <div class="carosuel-wrapper">
+  <div class="carosuel-wrapper" @click.stop.prevent="toggleSidebar">
     <div class="carosuel-announce">
       <div class="carosuel-announce-info">公告 : 幸運轉盤活動開啟公告看這裡!</div>
     </div>
@@ -48,8 +48,20 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: "Carousel",
+  computed: {
+    ...mapState(['isToggle'])
+  },
+  methods: {
+    toggleSidebar() {
+      if(this.isToggle) {
+        console.log('toggleback')
+        this.$store.commit('toggleSidebar')
+      }
+    },
+  }
 };
 </script>
 

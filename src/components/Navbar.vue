@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" @click.stop.prevent="toggleSidebar">
     <img src="../assets/header/header_bg.jpg" alt="" class="header-bg" />
     <div class="header-body">
       <div class="header-body-head">
@@ -8,7 +8,7 @@
           alt=""
           class="header-body-head-logo"
         />
-        <button class="header-body-head-login" v-if="!isLogin">登入
+        <button class="header-body-head-login" v-if="!isLogin" @click.stop.prevent="login">登入
           <img src="../assets/footer/footer_bg.jpg" alt="" class="header-body-head-login-bg">
         </button>
       </div>
@@ -17,13 +17,22 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: "Navbar",
-  data() {
-    return {
-      isLogin: false,
-    };
+  computed: {
+    ...mapState(['isLogin', 'isToggle'])
   },
+  methods: {
+    login() {
+      this.$store.commit('loginUser')
+    },
+    toggleSidebar() {
+      if(this.isToggle) {
+        this.$store.commit('toggleSidebar')
+      }
+    }
+  }
 };
 </script>
 

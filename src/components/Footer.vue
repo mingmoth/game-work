@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer" @click.stop.prevent="toggleSidebar">
     <img src="../assets/footer/footer_bg.jpg" alt="" class="footer-bg">
     <div class="footer-body">
       <div class="footer-body-item">優惠活動</div>
@@ -10,8 +10,20 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  computed: {
+    ...mapState(['isToggle', 'isToggle'])
+  },
+  methods: {
+    toggleSidebar() {
+      if(this.isToggle) {
+        console.log('toggleback')
+        this.$store.commit('toggleSidebar')
+      }
+    },
+  }
 }
 </script>
 
